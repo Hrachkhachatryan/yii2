@@ -1,0 +1,52 @@
+{
+  "name": "opus-online/yii2-app-ecom",
+  "description": "Sample application using the yii2-ecom package",
+  "minimum-stability": "dev",
+  "type": "project",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Ivo Kund",
+      "email": "ivo@opus.ee"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "2.0.0",
+	"opus-online/yii2-ecom": "~1.0.1"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "2.0.0",
+    "yiisoft/yii2-gii": "2.0.0",
+    "opus-online/yii2-giimodel": "*"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/opus-online/yii2-giimodel"
+    }
+  ],
+  "scripts": {
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postCreateProject"
+    ]
+  },
+  "extra": {
+	"yii\\composer\\Installer::postCreateProject": {
+	  "setPermission": [
+		{
+		  "runtime": "0777",
+		  "web/assets": "0777",
+		  "yii": "0755"
+		}
+	  ],
+	  "generateCookieValidationKey": [
+		"config/web.php"
+	  ]
+	},
+	"asset-installer-paths": {
+	  "npm-asset-library": "vendor/npm",
+	  "bower-asset-library": "vendor/bower"
+	}
+  }
+}

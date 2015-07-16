@@ -1,0 +1,6 @@
+vendor
+runtime/*
+composer.lock
+.idea
+config/db-local.php
+config/banks-local.php
